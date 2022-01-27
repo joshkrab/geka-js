@@ -165,7 +165,8 @@ if (userCheck.age) {
    console.log(userCheck);
 }
 
-// Синтаксис "опциональная цепочка" - если такого свойства нет, чтобы не выдавало ошибку
+// Синтаксис "опциональная цепочка" - если такого свойства нет,
+// чтобы не выдавало ошибку
 console.log(userCheck?.super?.person);
 
 // Оператор "in"
@@ -253,7 +254,8 @@ function UserInfo(name) {
    this.name = name;
    this.age = 30;
 
-   // return this; - возвращает объект - также неявно, можно вернуть то, что нам надо
+   // return this; - возвращает объект - также неявно, но можно вернуть то,
+   // что нам надо
 }
 
 // Вызов такой функции: создаем одинаковые объекты с разными параметрами
@@ -347,3 +349,247 @@ console.log(userHw8);
 // 8.5 Удалите свойство нейм
 delete userHw8.name;
 console.log(userHw8);
+
+// Лекция по ООП ________________________________________________________
+
+// Атрибуты объекта:
+// prototype
+// class
+// extemsible
+
+let dateX = new Date(); // - Создает объект с датой
+
+let arr = new Array(); // - это создание массива из аргументов.
+// Например, new Array(1,2,3) - массив из трех элементов: 1,2,3,
+// такой же как и[1, 2, 3].
+
+let obj = new Object(); // синтаксис "конструктор объекта"
+
+// Наследует свойства объекта, который в скобках:
+let objX = Object.create(Object.prototype);
+
+// При создании объекта создается ссылка на него ref: 0x2ff947
+// и адрес в памяти addr: 0x2ff947
+
+let www = {
+   x: 'test',
+   y: 1234,
+};
+
+// При выводе всего объекта мы обращаемся к ref:
+console.log(www);
+
+// Пример создания объекта конструктором:
+let constrObj = new Object();
+constrObj.x = 'test';
+constrObj.y = 1234;
+constrObj.z = new Object();
+constrObj.w = new Object();
+constrObj[''] = 'hi';
+
+console.log(constrObj);
+
+// Функция которая не вызвана, а определена внутри объекта
+// называется "методом"
+
+let xx = 1,
+   yy = 2;
+let objXx = { xx, yy };
+
+console.log(objXx);
+
+let objPlus = { ['First' + 'Name']: 'Olga' };
+console.log(objPlus);
+console.log(objPlus['First' + 'Name']);
+console.log(objPlus['FirstName']);
+
+// window это глобальный объект
+var vvv = 10; // Если let то не пашет
+console.log(vvv, this.vvv, window.vvv);
+
+var calculator = {
+   operand1: 1,
+   operand2: 2,
+   // Функция внутри объекта - наз. метод:
+   add: function () {
+      this.result = this.operand1 + this.operand2;
+   },
+};
+
+calculator.add();
+console.log(calculator.result);
+console.log(calculator);
+
+// Прототип объекта ________________________________________________________________
+
+// Prototype - это механизм, с помощью которого объекты JavaScript
+// наследуют свойства друг от друга.
+
+// Как я понял, это глобальный объект - Object.prototype, от которого наследуются
+// все объекты которые мы прописываем ниже:
+// Object.prototype.x = 10;
+var aA = {};
+console.log(aA['x']); // Сначала ищет в текущем объекте, если не находит то в родителе
+
+function Person(first, last, age, gender) {
+   this.name = {
+      first: first,
+      last: last,
+   };
+   this.age = age;
+   this.gender = gender;
+}
+var person1 = new Person('Bob', 'Smith', 32, 'male');
+
+// Prototype - это как-бы свойства объекта родителя
+// Что-бы задать эти св-ва вручную используют __proto__
+let animal = {
+   eats: true,
+};
+let rabbit = {
+   jumps: true,
+};
+
+rabbit.__proto__ = animal; // - устанавливает animal как прототип для rabbit
+console.log(rabbit.eats);
+
+// Если у нас есть метод в animal, он может быть вызван на rabbit:
+
+let animal2 = {
+   eats: true,
+   walk() {
+      alert('Animal walk');
+   },
+};
+
+let rabbit2 = {
+   jumps: true,
+   __proto__: animal2,
+};
+
+// walk взят из прототипа
+// rabbit2.walk(); // Animal walk
+
+//Цепочка прототипов может быть длиннее:
+let animal3 = {
+   eats: true,
+   walk() {
+      alert('Animal3 walk');
+   },
+};
+
+let rabbit3 = {
+   jumps: true,
+   __proto__: animal3,
+};
+
+let longEar = {
+   earLength: 10,
+   __proto__: rabbit3,
+};
+// walk взят из цепочки прототипов
+// longEar.walk(); // Animal3 walk
+// alert(longEar.jumps); // true (из rabbit3)
+
+let aa = {
+   a: 12,
+};
+
+let bb = {
+   b: 15,
+};
+// Делаем aa протопипом для bb:
+Object.setPrototypeOf(bb, aa);
+
+// Constructor ____________________________________________________________________
+function Foo(y) {
+   this.y = y;
+}
+
+// Добавляем свойства в прототип:
+Foo.prototype.x = 10;
+Foo.prototype.calculate = function (z) {
+   return this.x + this.y + z;
+};
+
+// Создаем объекты функцией конструктором:
+var bbb = new Foo(20);
+var ccc = new Foo(30);
+
+console.log(bbb.calculate(30));
+console.log(ccc.calculate(40));
+
+// Copying by reference - Копирование по ссылке
+let x = {
+   name: 'John',
+};
+let y = x;
+y.name = 'Sasha';
+console.log(x.name); // Sasha
+// Изменяется сам объект по ссылке, "ключи от одной коробки"
+
+// Объект в константе можно изменять:
+const car = {
+   color: 'red',
+};
+const newCar = car;
+delete newCar.color;
+newCar.style = 'Sport';
+console.log(car);
+
+// Object.assign() - копирование объекта, создание новой ссылки и тд
+var o1 = { a: 1 };
+var o2 = { b: 2 };
+var o3 = { c: 3 };
+
+// Копирует в первый оргумент второй, во второй из третьего и тд
+var objAssign = Object.assign(o1, o2, o3);
+console.log(objAssign);
+console.log(o1);
+console.log(Object.assign(o2, o3));
+
+let cat = {
+   name: 'tom',
+};
+// Вывод описания свойства:
+let a = Object.getOwnPropertyDescriptor(cat, 'name');
+console.log(a);
+
+// Цикл перебора свойств/значений объекта:
+let userMan = {
+   name: 'john',
+   age: 30,
+   isAdmin: true,
+};
+
+for (let key in userMan) {
+   console.log(key); // Свойство
+   console.log(userMan[key]); // Значение свойства
+}
+
+// ООП - на основе прототипов/наследования
+// Процесс повторного использования существующего объекта
+
+// Использование объектов, которые могут быть клонированы и расширены
+
+function Vehicle(make, model, color) {
+   (this.make = make),
+      (this.model = model),
+      (this.color = color),
+      (this.getName = function () {
+         return this.make + ' ' + this.model;
+      });
+}
+
+let carBest = new Vehicle('Mercedes', 'CLK200', 'Black');
+console.log(carBest);
+// В свойствах мы видем родительский объект, с которого наследуется
+
+// Функция конструктор - старая школа
+// Class in ES6 - новая школа
+
+// ______________________________________________________________________________
+// JSON - JavaScript Object Notation - формат файла для обмена данными
+// считается удобным для чтения и сохранения, как замена xml файлам
+
+//YAML - более сложный JSON
