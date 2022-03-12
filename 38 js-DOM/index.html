@@ -5,9 +5,32 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>js-DOM</title>
+      <link rel="stylesheet" href="./css/style.css" />
    </head>
    <body>
-      <h1>Hello DOM :)</h1>
+      <h1 id="title2">Hello DOM :)</h1>
+      <div class="lesson">
+         <div class="lesson__text">Example for selectors!</div>
+         <!-- Комментарий -->
+         <ul class="lesson__list">
+            <li class="lesson__item">Item 1</li>
+            <li class="lesson__item">Item 2</li>
+            <li id="title" data-item="40" class="lesson__item">
+               Item 3
+               <ul class="lesson__sublist">
+                  <li id="red" class="lesson__sub-item">Sub-item 1</li>
+                  <li class="red lesson__sub-item">Sub-item 2</li>
+                  <li data-item="89" class="lesson__sub-item">Sub-item 3</li>
+               </ul>
+            </li>
+         </ul>
+      </div>
+      <div class="insert-element">"Initial data"</div>
+      <a href="http://fls.guru" class="lesson__link">Я ссылка</a>
+      <div data-say-hi="yes">Задача 1</div>
       <script src="./js/script.js"></script>
+      <div class="test-content">
+         Контент не видимый в ДОМ, если записан после вызова скрипта
+      </div>
    </body>
 </html>
