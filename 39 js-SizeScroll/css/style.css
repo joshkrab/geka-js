@@ -7,3 +7,31 @@ h1 {
    background-color: rgb(180, 248, 195);
    text-align: center;
 }
+
+.scroll-p {
+   background-color: rgb(126, 238, 81);
+   height: 100px;
+   padding: 20px;
+}
+
+.scroll-lock {
+   overflow: hidden;
+}
+
+.lesson {
+   position: relative;
+   padding: 30px;
+}
+
+.lesson__block {
+   margin: 0 auto;
+   width: 500px;
+   height: 300px;
+   padding: 15px;
+   border: 20px solid rgb(144, 233, 144);
+   background-color: rgb(177, 131, 131);
+   overflow: auto;
+   font-size: 20px;
+   line-height: 150%;
+   box-sizing: border-box;
+}
