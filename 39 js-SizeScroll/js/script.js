@@ -224,6 +224,8 @@ console.log(elemByCoord);
 const hw1Elem = document.querySelector('.lesson__block');
 // Из общей ширины вычитаем ширину без бордер+прокрутка и дважды ширину бордера
 console.log(hw1Elem.offsetWidth - hw1Elem.clientWidth - hw1Elem.clientLeft * 2);
+// Посчитаем ширину скролбара браузера:
+console.log(window.innerWidth - document.documentElement.clientWidth);
 
 // Task.2 Scroll broser 100px with delay 1s
 function scrollDelay() {

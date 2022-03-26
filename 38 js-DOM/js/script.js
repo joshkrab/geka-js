@@ -267,6 +267,7 @@ styleElem.style.cssText = `margin-bottom: 30px; color: red;`;
 // Вычисляемое значение стиля, если не указано в атрибуте slyle:
 const elementStyle = getComputedStyle(styleElem); // Возвращает вычисленные стили - целую кучу
 console.log(elementStyle.fontSize); // Выведет размер шрифта
+console.log(elementStyle.borderRight);
 
 // Получить значение стиля псевдоэлемента:
 const elementBeforeStyle = getComputedStyle(styleElem, '::before');
