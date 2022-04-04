@@ -1,4 +1,5 @@
 console.log('check');
+// LinkedIn tasks _____________________________________________________
 let l1 = 10;
 let l2 = 0;
 while (l1 < 13 || l2 <= 2) {
@@ -47,3 +48,5 @@ function deepEqual(obj1, obj2) {
    return JSON.stringify(obj1) === JSON.stringify(obj2);
 }
 console.log(deepEqual(a, b));
+
+// ___________________________________________________________________________
