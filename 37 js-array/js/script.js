@@ -326,5 +326,82 @@ let hw5V = hw5.reduce(function (pV, item, index, array) {
    console.log(pV);
    return item + pV;
 });
-
 console.log(hw5V);
+
+// Приклади массивів _________________________________________________________________
+
+// Задача з тесту ln
+const a = { x: 1 };
+const b = { x: 1 };
+
+function deepEqual(obj1, obj2) {
+   return JSON.stringify(obj1) === JSON.stringify(obj2);
+}
+console.log(deepEqual(a, b)); // true
+
+// Ассоциативний масив _______________________________________________________________________
+// Індексний масив:
+var car = ['Nissan', 'Sedan', 2015, 'Black', 30000, false];
+console.log(car);
+console.log(typeof car);
+
+// Асоциативний масив:
+var car2 = {};
+car2 = {
+   'Brand': 'Nissan',
+   'type': 'Sedan',
+   'year': '2005',
+   'color': 'Black',
+   'mileage': 3000,
+   'repaired': false,
+   0: 'value', // Цифри можуть бути ключами але рідко
+};
+console.log(car2);
+console.log(car2.length); // undefine - no such property
+console.log(Object.keys(car2)); // Поверне масив ключей
+console.log(Object.keys(car2).length); // Так працює
+
+console.log(car2['color']); // Витягнути значення, по типу індексу
+console.log(car2.color); // Витягнути значення, по типу об'єкта
+console.log(car2['0']); // Витягнути значення
+console.log(typeof car2); // Object
+
+car2.light = 'shine';
+console.log(car2);
+console.log(Object.keys(car2).length);
+// Порядок елементів непередбачуваний, сортування не працює
+
+// HomeWork:
+// 1 Add inscription "Зі святом"
+// 2 Replace "Март" to "Березня!"
+// 3 Enter the phrase into the console "Зі святом 8 Березня!"
+
+var myObjHw = {
+   'name': 'Привітання',
+   'month': [
+      'январь',
+      'февраль',
+      'март',
+      'апрель',
+      'май',
+      'июнь',
+      'июль',
+      'август',
+   ],
+   'random array': [
+      5,
+      true,
+      {
+         year: 2018,
+         number: 8,
+      },
+      12,
+      12.4,
+   ],
+   'year array': [2017, 2018],
+};
+myObjHw.start = 'Зі святом ';
+myObjHw.month[2] = ' Березня!';
+console.log(
+   myObjHw.start + myObjHw['random array'][2].number + myObjHw.month[2]
+);
