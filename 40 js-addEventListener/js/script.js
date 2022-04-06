@@ -48,6 +48,15 @@ function deepEqual(obj1, obj2) {
 }
 console.log(deepEqual(a, b));
 
+// Задачка від Ромки, по кліку на батон текст з інпуту передається в ol:
+document.querySelector('.push').onclick = () =>
+   document
+      .querySelector('ol')
+      .insertAdjacentHTML(
+         'beforeend',
+         `<li>${document.querySelector('input').value}</li>`
+      );
+
 // ___________________________________________________________________________
 
 // Use the DOM object
@@ -117,4 +126,59 @@ document.querySelector('.button5').addEventListener('click', showEvObj);
 // При наведенні миші:
 // document.querySelector('.button5').addEventListener('mouseenter', showEvObj);
 
-// 12:30
+// Спливання та занурення _______________________________________________________________
+const block1 = document.querySelector('.block1');
+const block2 = document.querySelector('.block2');
+const block3 = document.querySelector('.block3');
+
+block1.addEventListener('click', function (event) {
+   console.log(event.target);
+});
+block2.addEventListener(
+   'click',
+   function (event) {
+      console.log('.block2');
+   },
+   { capture: true } // Спрацює першим, перехопиться при зануренні
+);
+block3.addEventListener('click', function (event) {
+   console.log('.block3');
+   // Заборона спливання, тільки поточний обробник:
+   // event.stopPropagation();
+});
+
+// Занурення - щоб щось спливло, воно повинно з початку зануритися :)
+
+// Делегування подій _______________________________________________________________
+const but = document.querySelectorAll('.but');
+function showForBut() {
+   console.log('COOL');
+}
+
+// but.forEach((buttonItem) => {
+//    buttonItem.addEventListener('click', showForBut);
+// });
+
+// Щоб не загружати купою обробників браузер, напишемо обробник батькові
+const lesson = document.querySelector('.lesson');
+lesson.addEventListener('click', function (event) {
+   // Якщо найблищий батьківський елемент по селектору:
+   if (event.target.closest('.but')) {
+      showForBut();
+   }
+});
+
+const menuBody = document.querySelector('.menu');
+
+document.addEventListener('click', menu);
+
+function menu(event) {
+   if (event.target.closest('.menu__button')) {
+      menuBody.classList.toggle('_active');
+   }
+   if (!event.target.closest('.menu')) {
+      menuBody.classList.remove('_active');
+   }
+}
+
+// 25хвилина
