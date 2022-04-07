@@ -168,6 +168,7 @@ lesson.addEventListener('click', function (event) {
    }
 });
 
+// Приклад обробника на весь документ:
 const menuBody = document.querySelector('.menu');
 
 document.addEventListener('click', menu);
@@ -181,4 +182,89 @@ function menu(event) {
    }
 }
 
-// 25хвилина
+// Дії браузера за замовчуванням: ____________________________________________________________
+const link = document.querySelector('.google-link');
+link.addEventListener('click', function (event) {
+   console.log('Our actions');
+   event.preventDefault(); // Відмінити дію за умовченням, не перейде по лінку
+});
+
+// Те саме через онклік:
+// link.onclick = function () {
+//    console.log('Our actions');
+//    return false;
+// };
+
+// Подиї миші - прости та комплексні _______________________________________________________________
+
+// Прості:
+// mousedown/mouseup - кнопка нажата/віджата над елементом
+// mouseover/mouseout - курсор з'являється/зникає над елементом
+// mousemove - рух миші над елементом
+// contextmenu - при спробі відкрити контекст меню, правою клавішою або на клаві
+
+// Комплексні: складаються з простих
+// ckick - визивається з допомоги mousedown/mouseup
+// dblclick - подвійний клік на елементі
+
+const eventBut = document.querySelector('.event-but');
+
+eventBut.addEventListener('mousedown', function (event) {
+   console.log(`Нажата кнопка ${event.which}`); // поверне номер кнопки миші
+});
+eventBut.addEventListener('click', function (event) {
+   console.log(`Нажата основна кнопка миші`);
+});
+eventBut.addEventListener('contextmenu', function (event) {
+   console.log(`Нажата не основна кнопка, контекст меню`);
+});
+
+// Координати миші:
+const blockCoord = document.querySelector('.block-coord');
+blockCoord.addEventListener('mousemove', function (event) {
+   blockCoord.innerHTML = `clientX - ${event.clientX} <br> clientY - ${event.clientY}`;
+});
+
+// blockCoord.addEventListener('mouseover', function (event) {
+//    blockCoord.innerHTML = `<br> Курсор над елементом`;
+// });
+// blockCoord.addEventListener('mouseout', function (event) {
+//    blockCoord.innerHTML += `<br> Курсор пішов`;
+// });
+
+// Можна уловити з якого елемента на який перейшов курсор:
+// blockCoord.addEventListener('mouseover', function (event) {
+//    console.log(event.target); // поточний елемент
+//    console.log(event.relatedTarget); // з якого перейшов
+// });
+// blockCoord.addEventListener('mouseout', function (event) {
+//    console.log(event.target);
+//    console.log(event.relatedTarget);
+// });
+
+// Теж саме, але не реагує на дочерні елементи:
+blockCoord.addEventListener('mouseenter', function (event) {
+   console.log(event.target); // поточний елемент
+   console.log(event.relatedTarget); // з якого перейшов
+   console.log('прийшов');
+});
+blockCoord.addEventListener('mouseleave', function (event) {
+   console.log(event.target);
+   console.log(event.relatedTarget);
+   console.log('пішов');
+});
+
+// Делегування подій наведення миші:
+const blockCoord2 = document.querySelector('.block-coord2');
+blockCoord2.addEventListener('mouseover', function (event) {
+   let target = event.target.closest('span');
+   if (!target) return;
+   target.style.cssText = 'background-color: rgb(219, 214, 214)';
+});
+blockCoord2.addEventListener('mouseout', function (event) {
+   let target = event.target.closest('span');
+   if (!target) return;
+   target.style.cssText = '';
+});
+
+// 16:20

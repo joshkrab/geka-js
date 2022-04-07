@@ -45,6 +45,7 @@ h1 {
 
 .menu__button {
    background-color: yellow;
+   width: 200px;
 }
 
 .menu._active .menu__list {
@@ -83,4 +84,34 @@ h1 {
 }
 .menu__link:hover {
    color: rgb(150, 136, 110);
+}
+
+/* ---------------------------------------------------------------------------------------- */
+.block-coord {
+   margin: 20px auto;
+   width: 200px;
+   height: 100px;
+   background-color: rgb(219, 214, 214);
+   box-sizing: border-box;
+   padding: 20px;
+}
+.block-coord2 {
+   margin: 0 auto;
+   width: 200px;
+   height: 200px;
+   background-color: rgb(219, 214, 214);
+   box-sizing: border-box;
+   padding: 0;
+   display: flex;
+   flex-wrap: wrap;
+}
+.block-coord2 span {
+   text-align: center;
+   display: inline-block;
+   width: 33.33%;
+   height: 33.33%;
+   background-color: rgb(241, 163, 163);
+   margin: 0;
+   padding: 0;
+   line-height: 70px;
 }
