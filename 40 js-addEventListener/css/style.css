@@ -115,3 +115,8 @@ h1 {
    padding: 0;
    line-height: 70px;
 }
+
+.textarea {
+   width: 150px;
+   height: 60px;
+}

@@ -267,4 +267,49 @@ blockCoord2.addEventListener('mouseout', function (event) {
    target.style.cssText = '';
 });
 
-// 16:20
+// Події клавіатури __________________________________________________________________
+// Keydown/keyup - зажати/віджати клавішу
+// event.code - не змінюється при капслокі, та зміні мови
+// event.key - змінюється
+
+// document.addEventListener('keydown', function (event) {
+//    console.log(`Нажата клавіша ${event.code}(${event.key})`);
+// });
+// document.addEventListener('keyup', function (event) {
+//    console.log(`Віджата клавіша ${event.code}(${event.key})`);
+// });
+
+// Перевірка на відміну дії, на будь якій мові - ctrl+z
+document.addEventListener('keydown', function (event) {
+   if (event.code == 'KeyZ' && (event.ctrlKey || event.meteKey)) {
+      console.log('Нажата відміна дії');
+   }
+});
+
+// Перевірка на довге зажаття клавіши, повтор виведення сімволу
+// document.addEventListener('keydown', function (event) {
+//    console.log(`Нажата клавіша ${event.code}(${event.key})`);
+//    console.log(event.repeat);
+// });
+
+document.addEventListener('keyup', function (event) {
+   console.log(`віджата клавіша ${event.code}(${event.key})`);
+});
+
+// Перевірка на залишок вводимих символів:
+const tA = document.querySelector('.textarea');
+const textLimit = tA.getAttribute('maxlength');
+const textCounter = document.querySelector('.counter');
+textCounter.innerHTML = `Залишилось сімволів: ` + textLimit;
+tA.addEventListener('keyup', setCounter);
+// При зажатому символі теж запускаємо функцію лічильника:
+tA.addEventListener('keydown', function (event) {
+   if (event.repeat) setCounter();
+});
+
+function setCounter() {
+   const txtResult = textLimit - tA.value.length;
+   textCounter.innerHTML = `Залишилось сімволів: ` + txtResult;
+}
+
+// 48:30
