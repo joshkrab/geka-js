@@ -120,3 +120,11 @@ h1 {
    width: 150px;
    height: 60px;
 }
+
+.search {
+   display: none;
+}
+
+.search.active {
+   display: block;
+}

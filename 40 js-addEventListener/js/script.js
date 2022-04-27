@@ -36,9 +36,18 @@ var cat = { name: 'Athena' };
 function swap(feline) {
    feline.name = 'Wild';
    feline = { name: 'Tabby' };
+   console.log(feline.name);
 }
 swap(cat);
 console.log(cat.name);
+
+let aa1 = 4;
+function wery(arg) {
+   arg = 6;
+   aa1 = arg;
+}
+wery(aa1);
+console.log(aa1);
 
 const a = { x: 1 };
 const b = { x: 1 };
@@ -181,11 +190,17 @@ function menu(event) {
       menuBody.classList.remove('_active');
    }
 }
+// Допрацьовуємо меню на клавішу Esc
+document.addEventListener('keyup', function (event) {
+   if (event.code === 'Escape') {
+      menuBody.classList.remove('_active');
+   }
+});
 
 // Дії браузера за замовчуванням: ____________________________________________________________
 const link = document.querySelector('.google-link');
 link.addEventListener('click', function (event) {
-   console.log('Our actions');
+   console.log('Не переходимо нікуди, відміняємо дію за умовчанням');
    event.preventDefault(); // Відмінити дію за умовченням, не перейде по лінку
 });
 
@@ -282,7 +297,7 @@ blockCoord2.addEventListener('mouseout', function (event) {
 // Перевірка на відміну дії, на будь якій мові - ctrl+z
 document.addEventListener('keydown', function (event) {
    if (event.code == 'KeyZ' && (event.ctrlKey || event.meteKey)) {
-      console.log('Нажата відміна дії');
+      console.log('Нажато Ctrl+z');
    }
 });
 
@@ -298,7 +313,7 @@ document.addEventListener('keyup', function (event) {
 
 // Перевірка на залишок вводимих символів:
 const tA = document.querySelector('.textarea');
-const textLimit = tA.getAttribute('maxlength');
+const textLimit = tA.getAttribute('maxlength'); // Значення атрібуту
 const textCounter = document.querySelector('.counter');
 textCounter.innerHTML = `Залишилось сімволів: ` + textLimit;
 tA.addEventListener('keyup', setCounter);
@@ -312,4 +327,87 @@ function setCounter() {
    textCounter.innerHTML = `Залишилось сімволів: ` + txtResult;
 }
 
-// 48:30
+// Події при скролі _____________________________________________________________________________
+// Глобальний об'єкт window
+
+window.addEventListener('scroll', function (event) {
+   console.log(`${scrollY}px`); // Поверне кількість прокручених пікселів по вертікалі
+});
+
+// Є ще IntersectionObserver - події перетинання лінії, буде в іншому уроці
+
+// Події завантаження сторінки _______________________________________________________________________
+
+// DOMContentLoaded - браузер повністю завантажил хтмл, але зображення чи стилі можуть ще не загрузитись
+// load - завантажено хтмл та усі зовнішні ресурси
+// beforeunload / unload - користувач покидає сторінку
+
+window.addEventListener('scroll', function (event) {
+   console.log(document.readyState); // Стан завантаження
+});
+
+document.addEventListener('DOMContentLoaded', readyDom);
+window.addEventListener('load', readyLoad);
+
+function readyDom() {
+   console.log(document.readyState);
+   console.log('DOM Loaded');
+}
+
+function readyLoad() {
+   console.log(document.readyState);
+   console.log('Page Loaded');
+}
+
+// Функції відходу зі сторінки - наприклад попередження закриття
+window.addEventListener('beforeunload', function (event) {
+   // Відміняємо дію за умовчанням:
+   event.preventDefault();
+   // Хром потребує повертання значення:
+   event.returnValue = '';
+});
+
+// unload - вже після уходу зі сторінки в фоновому режимі, наприклад відправка чогось, статистикі тощо
+
+// HomeWork ---------------------------------------------------------------------------------------------------------
+let searchField = document.querySelector('.search');
+let searchCounter = document.querySelector('.search-counter');
+const searchLimit = searchField.getAttribute('maxlength'); // Значення атрібуту
+
+document
+   .querySelector('.show-search')
+   .addEventListener('click', function (event) {
+      event.preventDefault();
+      searchField.classList.toggle('active'); // Показуємо/приховуємо текстарею по кліку
+      searchCounter.innerHTML = `Залишилось сімволів: ` + searchLimit;
+   });
+
+document.addEventListener('click', function (event) {
+   if (
+      !event.target.closest('.search') &&
+      !event.target.closest('.show-search')
+   ) {
+      searchField.classList.remove('active'); // Приховуємо при кліку будь де, крім поля
+      searchCounter.innerHTML = '';
+   }
+});
+
+document.addEventListener('keyup', function (event) {
+   if (event.code === 'Escape') {
+      searchField.classList.remove('active'); // Закриваємо пошук натисканням Esc
+      searchCounter.innerHTML = '';
+   }
+});
+
+// Лічільник символів пошуку:
+searchField.addEventListener('keyup', searchCount);
+searchField.addEventListener('keydown', function (event) {
+   if (event.repeat) {
+      searchCount();
+   }
+});
+
+function searchCount() {
+   const txtResult = searchLimit - searchField.value.length;
+   searchCounter.innerHTML = `Залишилось сімволів: ` + txtResult;
+}
