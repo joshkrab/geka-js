@@ -424,7 +424,7 @@ var calculator = {
    },
 };
 
-calculator.add();
+calculator.add(); // Запуск
 console.log(calculator.result);
 console.log(calculator);
 
@@ -435,7 +435,7 @@ console.log(calculator);
 
 // Как я понял, это глобальный объект - Object.prototype, от которого наследуются
 // все объекты которые мы прописываем ниже:
-// Object.prototype.x = 10;
+Object.prototype.x = 10;
 var aA = {};
 console.log(aA['x']); // Сначала ищет в текущем объекте, если не находит то в родителе
 
@@ -460,6 +460,7 @@ let rabbit = {
 
 rabbit.__proto__ = animal; // - устанавливает animal как прототип для rabbit
 console.log(rabbit.eats);
+console.log(rabbit);
 
 // Если у нас есть метод в animal, он может быть вызван на rabbit:
 
@@ -508,6 +509,7 @@ let bb = {
 };
 // Делаем aa протопипом для bb:
 Object.setPrototypeOf(bb, aa);
+console.log(bb.a);
 
 // Constructor ____________________________________________________________________
 function Foo(y) {
@@ -543,6 +545,7 @@ const car = {
 const newCar = car;
 delete newCar.color;
 newCar.style = 'Sport';
+car.game = 'guitar';
 console.log(car);
 
 // Object.assign() - копирование объекта, создание новой ссылки и тд
@@ -591,6 +594,8 @@ function Vehicle(make, model, color) {
 
 let carBest = new Vehicle('Mercedes', 'CLK200', 'Black');
 console.log(carBest);
+console.log(carBest.getName());
+
 // В свойствах мы видем родительский объект, с которого наследуется
 
 // Функция конструктор - старая школа
@@ -607,18 +612,21 @@ console.log(carBest);
 // ниже в "методы" пишутся "ключи: значения - только методы(функции)"
 // и они присваиваются родителю - прототипу
 
-class UserС {
+class UserClient {
    constructor(name) {
       this.name = name;
+      this.newKey = 'privet Roma';
    }
 
    sayHi() {
       alert(this.name);
    }
 }
+UserClient.prototype.newKey2 = 'privet Roma2'; // Додали в прототип властивість
 
-let userСС = new UserС('Вася');
-userСС.sayHi(); // Вася
+let userCC = new UserClient('Вася');
+console.log(userCC);
+userCC.sayHi(); // Вася
 
 // ______________________________________________________________________________
 // JSON - JavaScript Object Notation - формат файла для обмена данными
