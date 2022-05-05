@@ -30,3 +30,7 @@ button {
 ._active {
    background-color: rgb(219, 201, 201);
 }
+
+.error-message {
+   color: red;
+}

@@ -19,8 +19,13 @@
                <input tabindex="2" type="text" id="input_1" name="nameInput" placeholder="Input value">
             </div>
             <div class="main-form-item">
+               <label for="input_3" class="main-form-label"><span>Поле введення email</span></label><br>
+               <input tabindex="0" type="text" id="input_3" name="nameEmail" placeholder="Input email">
+            </div>
+            <div class="main-form-item">
                <label for="input_2" class="main-form-label"><span>Текстове поле введення</span></label><br>
-               <textarea tabindex="1" type="text" id="input_2" name="nameTextarea" placeholder="Input value"></textarea>
+               <textarea maxlength="30" tabindex="1" type="text" id="input_2" name="nameTextarea" placeholder="Input value"></textarea>
+               <div class="export-counter"></div>
             </div>
          </div>
          <div class="main-form-column">

@@ -144,4 +144,114 @@ mainForm.addEventListener('focusout', function (event) {
    mainForm.classList.remove('_active');
 });
 
-// 22min
+// Подія change - спрацьовує по закінченню зміни елемента ___________________________________________________________________________________________________________
+const mainSelect = mainForm.nameSelect;
+const mainFile = mainForm.nameFile;
+
+mainSelect.addEventListener('change', function (event) {
+   console.log('Спрацювала зміна селекту');
+});
+
+mainFile.addEventListener('change', function (event) {
+   console.log('Спрацювала зміна файлу');
+});
+
+mainForm.nameInput.addEventListener('change', function (event) {
+   // console.log(`${mainForm.nameInput.value}`);
+});
+
+// Подія input - спрацьовує кожен раз при зміні значення ___________________________________________________________________________________
+
+// Події cut, copy, paste _______________________________________________________________________________________
+mainForm.nameInput.addEventListener('copy', function (event) {
+   console.log('Копіюємо');
+});
+
+mainForm.nameInput.addEventListener('cut', function (event) {
+   console.log('Вирізаємо');
+});
+// Будь яку таку подію можна відмінити - дію за замовчуванням
+
+mainForm.nameInput.addEventListener('paste', function (event) {
+   console.log('Не можна вставляти!');
+   event.preventDefault();
+});
+
+// Подія та метод submit _____________________________________________________________________________________________
+// mainForm.addEventListener('submit', function (event) {
+//    console.log('Форма відправляється ...');
+
+//    // також додамо перевірку, що якщо інпут порожній, то відміняємо подію за замовчуванням
+//    if (!mainForm.nameInput.value) {
+//       console.log('Поле інпут не заповнено, форм не відправлена');
+//       event.preventDefault();
+//    }
+// });
+
+// Відправити форму вручну, методом сабміт:
+// Наприклад при втраті фокусу з інпуту:
+mainForm.nameInput.addEventListener('blur', function (event) {
+   console.log('Форма відправляється ...');
+   mainForm.submit();
+});
+
+// Перевірка на email ________________________________________________________________________________________________________
+const emailInput = mainForm.nameEmail;
+
+mainForm.addEventListener('submit', function (event) {
+   if (emailTest(emailInput)) {
+      emailInput.parentElement.insertAdjacentHTML(
+         'beforeend',
+         `<div class='error-message'>Введіть email</div>`
+      );
+      event.preventDefault();
+   }
+});
+
+// Функція тесту адресу пошти:
+function emailTest(input) {
+   return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+
+// При фокусуванні на іпуті прибираємо помилку:
+emailInput.addEventListener('focus', function (event) {
+   if (emailInput.nextElementSibling) {
+      // Схоже просто на перевірку наявності наступного елементу в блоці батьку
+      emailInput.nextElementSibling.remove();
+   }
+});
+
+// Виводимо зображення після його вибіру в інпуті файл __________________________________________________________________________
+const fileInput = mainForm.nameFile;
+fileInput.addEventListener('change', function (event) {
+   // Отримуємо файл:
+   let selectedFile = fileInput.files[0];
+
+   // Формируємо посилання на цей файл:
+   let fileUrl = URL.createObjectURL(selectedFile);
+
+   // Виводимо нижче цього інпута:
+   fileInput.parentElement.insertAdjacentHTML(
+      'beforeend',
+      `<div class="main-form-image">
+         <img alt="image" width="150" title="${selectedFile.name}" src="${fileUrl}">
+      </div>`
+   );
+});
+
+// HOMEWORK =============================================================================================================================
+// - Відпрацювати усі методи урока, додати лічильник, заборонити вставку в інпут
+
+const hwTextarea = mainForm.nameTextarea;
+let hwCounter = 0;
+let exportCounter = document.querySelector('.export-counter');
+let textLimit = hwTextarea.getAttribute('maxlength'); // Значення атрібуту
+
+exportCounter.innerHTML = `Залишилось символів: ${textLimit}`;
+
+document.addEventListener('keyup', function (event) {
+   if (event.target.closest('#input_2')) {
+      let counter = textLimit - hwTextarea.value.length;
+      exportCounter.innerHTML = `Залишилось символів: ${counter}`;
+   }
+});
