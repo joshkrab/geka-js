@@ -1,0 +1,17 @@
+h1 {
+   width: 300px;
+   padding: 40px;
+   background-color: rgb(201, 218, 233);
+   margin: 0 auto;
+   text-align: center;
+   box-sizing: border-box;
+}
+
+.root {
+   width: 320px;
+   height: 200px;
+   background-color: rgb(187, 175, 175);
+   margin: 0 auto;
+   text-align: center;
+   line-height: 200px;
+}
