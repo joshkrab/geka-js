@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>formToEmail</title>
+      <link rel="stylesheet" href="./style.css" />
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="form">
+            <form action="#" id="form" class="form__body">
+               <h1 class="form__title">Send data to email</h1>
+               <div class="form__item">
+                  <label class="form__label" for="formName">Name*:</label>
+                  <input
+                     id="formName"
+                     type="text"
+                     class="form__input"
+                     name="name"
+                  />
+               </div>
+
+               <div class="form__item">
+                  <label class="form__label" for="formEmail">E-mail*:</label>
+                  <input
+                     id="formEmail"
+                     type="text"
+                     class="form__input"
+                     name="email"
+                  />
+               </div>
+
+               <div class="form__item">
+                  <div class="form__title">Lefthander or Righthander?</div>
+                  <div class="options">
+                     <div class="options__item">
+                        <label class="options__label" for="formRightHanded"
+                           >Righthander</label
+                        >
+                        <input
+                           id="formRightHanded"
+                           value="right"
+                           type="radio"
+                           name="hand"
+                           class="options__input"
+                           checked
+                        />
+                     </div>
+
+                     <div class="options__item">
+                        <label class="options__label" for="formLefttHanded"
+                           >Leftthander</label
+                        >
+                        <input
+                           id="formLefttHanded"
+                           value="left"
+                           type="radio"
+                           name="hand"
+                           class="options__input"
+                        />
+                     </div>
+                  </div>
+               </div>
+
+               <div class="form__item">
+                  <label class="options__label" for="formMessage">
+                     Message:
+                  </label>
+                  <textarea
+                     class="form__input"
+                     name="message"
+                     id="formMessage"
+                  ></textarea>
+               </div>
+
+               <div class="form__item">
+                  <div class="form__title">Age:</div>
+                  <select name="age" id="" class="select">
+                     <option value="from 18 to 25" selected="selected">
+                        Young
+                     </option>
+                     <option value="from 25 to 45">Old</option>
+                     <option value="from 45">SuperStar</option>
+                  </select>
+               </div>
+
+               <div class="form__item">
+                  <div class="form__title">Add a photo:</div>
+                  <div class="file">
+                     <div class="file__item">
+                        <!-- accept - вказуємо які файли будуть відображатися при виборі -->
+                        <input
+                           id="formImage"
+                           accept=".jpg, .jpeg, .png, .gif"
+                           type="file"
+                           name="image"
+                           class="file__input"
+                        />
+                        <div class="file__button">Select</div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+      <script src="./script.js"></script>
+   </body>
+</html>
+<!-- 9min -->
