@@ -33,12 +33,9 @@
                </div>
 
                <div class="form__item">
-                  <div class="form__title">Lefthander or Righthander?</div>
+                  <div class="form__label">Lefthander or Righthander?</div>
                   <div class="options">
                      <div class="options__item">
-                        <label class="options__label" for="formRightHanded"
-                           >Righthander</label
-                        >
                         <input
                            id="formRightHanded"
                            value="right"
@@ -47,12 +44,12 @@
                            class="options__input"
                            checked
                         />
+                        <label class="options__label" for="formRightHanded">
+                           <span>Righthander</span>
+                        </label>
                      </div>
 
                      <div class="options__item">
-                        <label class="options__label" for="formLefttHanded"
-                           >Leftthander</label
-                        >
                         <input
                            id="formLefttHanded"
                            value="left"
@@ -60,6 +57,9 @@
                            name="hand"
                            class="options__input"
                         />
+                        <label class="options__label" for="formLefttHanded">
+                           <span>Leftthander</span>
+                        </label>
                      </div>
                   </div>
                </div>
@@ -99,13 +99,30 @@
                            class="file__input"
                         />
                         <div class="file__button">Select</div>
+                        <div class="file__preview"></div>
+                     </div>
+                     <div class="file__item">
+                        <div class="checkbox">
+                           <input
+                              checked
+                              type="checkbox"
+                              name="agreement"
+                              class="checkbox__input"
+                              id="formAgreement"
+                           />
+                           <label class="checkbox__label" for="formAgreement"
+                              >Я погоджуюсь на обробку персональних даних
+                              відповідно до <a href="#">умов</a>*</label
+                           >
+                        </div>
                      </div>
                   </div>
                </div>
+
+               <button type="submit" class="form__button">Send</button>
             </form>
          </div>
       </div>
       <script src="./script.js"></script>
    </body>
 </html>
-<!-- 9min -->
