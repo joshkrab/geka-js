@@ -5,6 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>formToEmail</title>
+      <link rel="stylesheet" href="./select.js" />
       <link rel="stylesheet" href="./style.css" />
    </head>
    <body>
@@ -65,7 +66,7 @@
                </div>
 
                <div class="form__item">
-                  <label class="options__label" for="formMessage">
+                  <label class="form__label" for="formMessage">
                      Message:
                   </label>
                   <textarea
@@ -76,8 +77,8 @@
                </div>
 
                <div class="form__item">
-                  <div class="form__title">Age:</div>
-                  <select name="age" id="" class="select">
+                  <div class="form__label">Age:</div>
+                  <select name="age" class="form__select">
                      <option value="from 18 to 25" selected="selected">
                         Young
                      </option>
@@ -87,7 +88,7 @@
                </div>
 
                <div class="form__item">
-                  <div class="form__title">Add a photo:</div>
+                  <div class="form__label">Add a photo:</div>
                   <div class="file">
                      <div class="file__item">
                         <!-- accept - вказуємо які файли будуть відображатися при виборі -->
@@ -99,23 +100,27 @@
                            class="file__input"
                         />
                         <div class="file__button">Select</div>
-                        <div class="file__preview"></div>
                      </div>
-                     <div class="file__item">
-                        <div class="checkbox">
-                           <input
-                              checked
-                              type="checkbox"
-                              name="agreement"
-                              class="checkbox__input"
-                              id="formAgreement"
-                           />
-                           <label class="checkbox__label" for="formAgreement"
-                              >Я погоджуюсь на обробку персональних даних
-                              відповідно до <a href="#">умов</a>*</label
-                           >
-                        </div>
-                     </div>
+                     <div class="file__preview"></div>
+                  </div>
+               </div>
+
+               <div class="form__item">
+                  <div class="checkbox">
+                     <input
+                        checked
+                        type="checkbox"
+                        name="agreement"
+                        class="checkbox__input"
+                        id="formAgreement"
+                     />
+
+                     <label class="checkbox__label" for="formAgreement">
+                        <span
+                           >Я даю згоду на обробку моїх персональних даних
+                           відповідно до <a href="#">умов</a>*
+                        </span>
+                     </label>
                   </div>
                </div>
 
@@ -123,6 +128,7 @@
             </form>
          </div>
       </div>
+      <script src="./select.js"></script>
       <script src="./script.js"></script>
    </body>
 </html>
