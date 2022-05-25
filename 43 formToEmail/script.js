@@ -138,3 +138,14 @@ document.addEventListener('DOMContentLoaded', function () {
       reader.readAsDataURL(file);
    }
 });
+
+// console test:
+
+// CodeWars - Перевірити чи краще твоя оцінка екзамену за [середню в класі]:
+function betterThanAverage(classPoints, yourPoints) {
+   return (
+      classPoints.reduce((sum, item) => sum + item, 0) / classPoints.length <
+      yourPoints
+   );
+}
+console.log(betterThanAverage([12, 23, 34, 45, 56, 67, 78, 89, 90], 9));
