@@ -149,3 +149,14 @@ function betterThanAverage(classPoints, yourPoints) {
    );
 }
 console.log(betterThanAverage([12, 23, 34, 45, 56, 67, 78, 89, 90], 9));
+
+// Задача від Ромки - зробити лічильник:
+
+function counter() {
+   let i = 0;
+   return () => i++;
+}
+const resCount = counter();
+console.log(resCount()); // 0
+console.log(resCount()); // 1
+console.log(resCount()); // 2
