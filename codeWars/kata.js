@@ -47,7 +47,36 @@ console.log(isIsogram('aba'));
 console.log(isIsogram('moOse'));
 
 // --------------------------------------------------------
+
+function reverseWords(str) {
+   return str
+      .split(' ')
+      .map((item, index, array) => item.split('').reverse().join(''))
+      .join(' ');
+}
+console.log(reverseWords('This is an example!'));
+
 // --------------------------------------------------------
+
+function summation(num) {
+   if (num > 0) {
+      let arr = [];
+      arr.length = num;
+      for (let index = 0; index < num; index++) {
+         arr[index] = 0;
+      }
+
+      let result = arr.reduce(function (sum, item, index, array) {
+         item = index + 1;
+
+         return item + sum;
+      }, 0);
+
+      return result;
+   }
+}
+console.log(summation(4)); // Сума чисел от 1 до введеного
+
 // --------------------------------------------------------
 // --------------------------------------------------------
 // --------------------------------------------------------
