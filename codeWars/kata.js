@@ -121,7 +121,66 @@ function SeriesSum(n) {
 
 console.log(SeriesSum(2));
 // --------------------------------------------------------
+
+// задача співбесіди:
+const a = {
+   a: 10,
+};
+const b = {
+   a: 10,
+   b: {
+      a: 10,
+      b: 15,
+      c: [1, 2],
+   },
+};
+
+// як зробити копію об'єкта?
+let newObject = Object.assign({}, b); // Дублікат робить тільки зовнішнього об'єкта
+newObject.a = 200;
+newObject.b.a = 250;
+b.b.c = 11;
+
+console.log(b);
+console.log(newObject);
+
 // --------------------------------------------------------
+// Дають два числа, якщо обидва числа парні, тоді вивести добуток чисекл
+// якщо непарні обидва, вивести суму чисел
+// якщо одне непарне, вивести це непарне число
+
+function getNum(a, b) {
+   if (a % 2 && b % 2) {
+      return a + b;
+   } else if (a % 2 === 0 && b % 2 === 0) {
+      return a * b;
+   }
+   return a % 2 ? a : b;
+}
+console.log(getNum(11, 14));
+
 // --------------------------------------------------------
+// Знайти вагу усіх речей, ціна яких більше 80, та кількість меньше 7
+const food = [
+   { name: 'паста "Болонезье"', weight: 350, price: 68, quantity: 10 },
+   { name: 'спагетті з овочами', weight: 350, price: 56, quantity: 8 },
+   { name: 'пене з куріним феле', weight: 400, price: 68, quantity: 16 },
+   { name: 'піца з ананасами', weight: 675, price: 139, quantity: 30 },
+   { name: 'піца 4 сира', weight: 1600, price: 339, quantity: 8 },
+   { name: 'піца "Італьяні"', weight: 740, price: 159, quantity: 5 },
+   { name: 'салат з сьомгой', weight: 230, price: 87, quantity: 4 },
+   { name: 'салат з креветкою', weight: 230, price: 69, quantity: 5 },
+];
+
+function getWeight(arr) {
+   let filterFood = arr.filter((a) => a.price > 80 && a.quantity < 7);
+   console.log(filterFood);
+   return filterFood.reduce(
+      (acc, item) => (acc += item.weight * item.quantity),
+      0
+   );
+} // Щоб був один цикл замість двох, можна якось циклом for перебрати
+
+console.log(getWeight(food));
 // --------------------------------------------------------
 // --------------------------------------------------------
