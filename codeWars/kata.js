@@ -209,7 +209,23 @@ function solution(str, end) {
 
 console.log(solution('abcde', 'cde'));
 // ------------------------------------------------------------------------------------------------------------------------
+// Implement a function that adds two numbers together and returns their sum in binary.
+// The conversion can be done before, or after the addition.
+// The binary number returned should be a string.
+function sumBinary(a, b) {
+   return (a + b).toString(2);
+}
+console.log(sumBinary(5, 9));
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Given an array of ones and zeroes, convert the equivalent binary value to an integer.\
+// The parseInt function converts strings to numbers, and it takes a second argument specifying
+// the base in which the string representation is:
+function arrToDec(arr) {
+   return parseInt(arr.join(''), 2);
+}
+console.log(arrToDec([1, 1, 1, 1]));
+const binaryArrayToNumber = (arr) => parseInt(arr.join(''), 2);
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
