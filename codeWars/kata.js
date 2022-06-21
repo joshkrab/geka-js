@@ -227,6 +227,16 @@ function arrToDec(arr) {
 console.log(arrToDec([1, 1, 1, 1]));
 const binaryArrayToNumber = (arr) => parseInt(arr.join(''), 2);
 // ------------------------------------------------------------------------------------------------------------------------
+// In this kata you will create a function that takes a list of non-negative integers
+// and strings and returns a new list with the strings filtered out.
+
+const filter_list = (arr) => {
+   return arr.filter(function (item, index, array) {
+      return typeof item !== 'string';
+   });
+};
+
+console.log(filter_list([1, 2, 'aasf', '1', '123', 123]));
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
