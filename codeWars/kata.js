@@ -226,6 +226,7 @@ function arrToDec(arr) {
 }
 console.log(arrToDec([1, 1, 1, 1]));
 const binaryArrayToNumber = (arr) => parseInt(arr.join(''), 2);
+
 // ------------------------------------------------------------------------------------------------------------------------
 // In this kata you will create a function that takes a list of non-negative integers
 // and strings and returns a new list with the strings filtered out.
@@ -235,9 +236,37 @@ const filter_list = (arr) => {
       return typeof item !== 'string';
    });
 };
-
 console.log(filter_list([1, 2, 'aasf', '1', '123', 123]));
+
 // ------------------------------------------------------------------------------------------------------------------------
+function vowelsCount(str) {
+   const vowels = 'aeiou';
+   let res = 0;
+   for (let index = 0; index < str.length; index++) {
+      if (vowels.indexOf(str[index]) > -1) {
+         res += 1;
+      }
+   }
+   return res;
+}
+console.log();
+
 // ------------------------------------------------------------------------------------------------------------------------
+// To be a senior, a member must be at least 55 years old and have a handicap greater than 7:
+function category(arr) {
+   return arr.map((item, index, array) =>
+      item[0] >= 55 && item[1] > 7 ? 'Senior' : 'Open'
+   );
+}
+console.log(
+   category([
+      [18, 20],
+      [45, 2],
+      [61, 12],
+      [37, 6],
+      [21, 21],
+      [78, 9],
+   ])
+);
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
