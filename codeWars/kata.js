@@ -268,5 +268,23 @@ console.log(
       [78, 9],
    ])
 );
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Given the triangle of consecutive odd numbers:
+// Calculate the sum of the numbers in the nth row of this triangle (starting at index 1)
+function sumN(n) {
+   let arr = [];
+   let start = 1;
+   for (let index = 0; index < n; index++) {
+      arr[index] = [];
+      arr[index].length = index + 1;
+      for (let i = 0; i < arr[index].length; i++) {
+         arr[index][i] = start;
+         start += 2;
+      }
+   }
+   return arr[n - 1].reduce((a, b) => a + b);
+}
+// return n**3
+console.log(sumN(2));
 // ------------------------------------------------------------------------------------------------------------------------
