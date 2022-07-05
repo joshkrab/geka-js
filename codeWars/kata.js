@@ -363,19 +363,6 @@ console.log(isNan('00000'));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Примножувати кожну цифку числа, поки не буде одинарним:
-// let result = 0;
-// function persistence(num) {
-//    if (String(num).split('').length === 1) {
-//       return 0;
-//    } else {
-//       let mult = String(num)
-//          .split('')
-//          .reduce((sum, item) => sum * item);
-//       persistence(mult);
-//       result += 1;
-//       return result;
-//    }
-// }
 
 function persistence(num) {
    if (String(num).split('').length === 1) {
@@ -390,9 +377,35 @@ function persistence(num) {
       ));
    }
 }
-
 console.log(persistence(999));
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Сортування по числу в словах?
+function sortNum(str) {
+   return str
+      .split(' ')
+      .sort((a, b) => {
+         return Number(a.match(/(\d+)/g)[0]) - Number(b.match(/(\d+)/g)[0]);
+      })
+      .join(' ');
+}
+console.log(sortNum('4of Fo1r pe6ople g3ood th5e the2'));
+// Метод .match робить пошук у рядку по рег.виразу, та повертає масив з результатами. (глобальний об'єкт RegExp)
+// Метод сортування масиву чисел - arr.sort((a, b) => a - b})
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Write a function to split a string and convert it into an array of words.
+function strToArray(str) {
+   return str.split(' ').map((item) => `"${item}"`);
+}
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+function nameIn(name) {
+   return name
+      .split(' ')
+      .map((item) => `${item[0].toUpperCase}.`)
+      .join('.');
+}
+
 // ------------------------------------------------------------------------------------------------------------------------
