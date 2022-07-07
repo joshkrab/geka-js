@@ -419,8 +419,43 @@ function invert(array) {
 function isPangram(str) {
    return (string.toLowerCase().match(/([a-z])(?!.*\1)/g) || []).length === 26;
 }
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Дано два масива чи об'єкта а & b, перевірити чи усі елементи масива b є квадратами елементів а, незалежно від порядку:
+function comp(a, b) {
+   if (a && b) {
+      let arr = a.map((item) => item * item).sort((a, b) => a - b);
+      let arr2 = b.sort((a, b) => a - b);
+      if (
+         arr.length == arr2.length &&
+         arr.every((item, index) => arr2[index] == item)
+      ) {
+         return true;
+      }
+   }
+   return false;
+}
+console.log(
+   comp([10, 2, 0, 5, 8, 4, 9, 7, 3, 1], [1, 100, 9, 25, 64, 49, 81, 1, 16, 4])
+);
+
 // ------------------------------------------------------------------------------------------------------------------------
+// You are given an array(list) strarr of strings and an integer k.
+// Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+function longestN(strarr, k) {
+   let arr = [];
+
+   for (let i = 0; i < strarr.length; i++) {
+      arr.push(strarr.slice([i], [i + k]).join(''));
+   }
+   return strarr.length === 0 || k > strarr.length || k <= 0
+      ? ''
+      : arr.reduce((max, n) => (max.length >= n.length ? max : n), '');
+}
+console.log(
+   longestN(['tree', 'foling', 'trashy', 'blue', 'abcdef', 'uvwxyz'], 2)
+);
+
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
