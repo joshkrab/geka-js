@@ -487,5 +487,24 @@ function dublicateCount(str) {
    return res;
 }
 console.log(dublicateCount('indivisibility'));
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Розрахувати скільки часу треба черзі в супермаркеті, знаючи час людей та кількість кас:
+function queueTime(arr, n) {
+   const tills = new Array(n).fill(0); // Створили масив та заповнили його нулями
+
+   // goes through the queue of customer waitTimes
+   for (let waitTime of arr) {
+      // finds the till with the least wait time on it, adds the next customer's time to it
+      // Знаходимо касу з найменшим часом очікування, додає до неї час наступного клієнта
+      // Метод Math шукає у рядку, та повертає масив з результатом, тому розвертаемо спредом:
+      const lowestWaitTill = tills.indexOf(Math.min(...tills));
+      tills[lowestWaitTill] += waitTime;
+   }
+   // end result is that the waitTimes (load) on the tills are distributed optimally.
+   // The waitTime of the till with the heaviest load represents the total time taken
+   return Math.max(...tills);
+}
+console.log(queueTime([10, 2, 3, 3], 2)); // 10
+
 // ------------------------------------------------------------------------------------------------------------------------
