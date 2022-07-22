@@ -688,6 +688,30 @@ function plus(b) {
    return (a) => a + b;
 }
 console.log(plus(4)(2));
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Дають напрямки, якщо напрямки взаємодійні, тоді їх видалити з масиву:
+function dirReduc(arr) {
+   const opposite = {
+      NORTH: 'SOUTH',
+      SOUTH: 'NORTH',
+      EAST: 'WEST',
+      WEST: 'EAST',
+   };
+
+   if (arr.length <= 1) return arr;
+
+   return arr.reduce((sum, item) => {
+      if (sum[sum.length - 1] !== opposite[item]) {
+         sum.push(item);
+      } else {
+         sum.pop();
+      }
+      return sum;
+   }, []);
+}
+console.log(
+   dirReduc(['NORTH', 'SOUTH', 'SOUTH', 'EAST', 'WEST', 'NORTH', 'WEST'])
+); // WEST
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
