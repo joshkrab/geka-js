@@ -1,45 +1,45 @@
 // Задачкі кодВарс: ---------------------------------------------------------------------------
 
 const reverseSeq = (n) => {
-   let arr5 = [0];
-   if (n > 0) {
-      arr5 = [];
-      for (let i = 1; i <= n; i++) {
-         arr5.unshift(i);
-      }
-   }
-   return arr5;
+	let arr5 = [0];
+	if (n > 0) {
+		arr5 = [];
+		for (let i = 1; i <= n; i++) {
+			arr5.unshift(i);
+		}
+	}
+	return arr5;
 };
 console.log(reverseSeq(8));
 
 // --------------------------------------------------------
 function countPositivesSumNegatives(input) {
-   let arr = [];
-   if (!Array.isArray(input) || input.length === 0) {
-      return arr;
-   } else {
-      arr = [0, 0];
-      input.forEach(function (item, index, array) {
-         if (item > 0) {
-            arr[0] += 1;
-         }
-         if (item < 0) {
-            arr[1] += item;
-         }
-      });
-      return arr;
-   }
+	let arr = [];
+	if (!Array.isArray(input) || input.length === 0) {
+		return arr;
+	} else {
+		arr = [0, 0];
+		input.forEach(function (item, index, array) {
+			if (item > 0) {
+				arr[0] += 1;
+			}
+			if (item < 0) {
+				arr[1] += item;
+			}
+		});
+		return arr;
+	}
 }
 console.log(countPositivesSumNegatives());
 // --------------------------------------------------------
 
 function isIsogram(str) {
-   for (i = 0; i < str.length; i++) {
-      if (str.toLowerCase().split(str[i].toLowerCase()).length - 1 > 1) {
-         return false;
-      }
-   }
-   return true;
+	for (i = 0; i < str.length; i++) {
+		if (str.toLowerCase().split(str[i].toLowerCase()).length - 1 > 1) {
+			return false;
+		}
+	}
+	return true;
 }
 
 console.log(isIsogram('Dermatoglyphics'));
@@ -49,31 +49,31 @@ console.log(isIsogram('moOse'));
 // --------------------------------------------------------
 
 function reverseWords(str) {
-   return str
-      .split(' ')
-      .map((item, index, array) => item.split('').reverse().join(''))
-      .join(' ');
+	return str
+		.split(' ')
+		.map((item, index, array) => item.split('').reverse().join(''))
+		.join(' ');
 }
 console.log(reverseWords('This is an example!'));
 
 // --------------------------------------------------------
 
 function summation(num) {
-   if (num > 0) {
-      let arr = [];
-      arr.length = num;
-      for (let index = 0; index < num; index++) {
-         arr[index] = 0;
-      }
+	if (num > 0) {
+		let arr = [];
+		arr.length = num;
+		for (let index = 0; index < num; index++) {
+			arr[index] = 0;
+		}
 
-      let result = arr.reduce(function (sum, item, index, array) {
-         item = index + 1;
+		let result = arr.reduce(function (sum, item, index, array) {
+			item = index + 1;
 
-         return item + sum;
-      }, 0);
+			return item + sum;
+		}, 0);
 
-      return result;
-   }
+		return result;
+	}
 }
 console.log(summation(4)); // Сума чисел от 1 до введеного
 
@@ -81,42 +81,42 @@ console.log(summation(4)); // Сума чисел от 1 до введеного
 
 // Повернути 1 або 2 середніх сімвола слова:
 const midCh = (str) => {
-   const arr = str.split('');
+	const arr = str.split('');
 
-   if (arr.length % 2 == 0) {
-      return arr[arr.length / 2 - 1] + arr[arr.length / 2];
-   } else {
-      return arr[Math.floor(arr.length / 2)];
-   }
+	if (arr.length % 2 == 0) {
+		return arr[arr.length / 2 - 1] + arr[arr.length / 2];
+	} else {
+		return arr[Math.floor(arr.length / 2)];
+	}
 };
 
 console.log(midCh('middle'));
 // --------------------------------------------------------
 
 function sum(arr) {
-   return arr.reduce(function (sum, item, index, array) {
-      sum += item;
+	return arr.reduce(function (sum, item, index, array) {
+		sum += item;
 
-      return sum;
-   }, 0);
+		return sum;
+	}, 0);
 }
 console.log(sum([-2.398]));
 
 // --------------------------------------------------------
 
 function SeriesSum(n) {
-   let sum = 1;
-   let x = 4;
+	let sum = 1;
+	let x = 4;
 
-   if (n === 0) {
-      sum = 0;
-   } else {
-      for (let i = 1; i < n; i++) {
-         sum += 1 / x;
-         x += 3;
-      }
-   }
-   return sum.toFixed(2);
+	if (n === 0) {
+		sum = 0;
+	} else {
+		for (let i = 1; i < n; i++) {
+			sum += 1 / x;
+			x += 3;
+		}
+	}
+	return sum.toFixed(2);
 }
 
 console.log(SeriesSum(2));
@@ -124,15 +124,15 @@ console.log(SeriesSum(2));
 
 // задача співбесіди:
 const a = {
-   a: 10,
+	a: 10,
 };
 const b = {
-   a: 10,
-   b: {
-      a: 10,
-      b: 15,
-      c: [1, 2],
-   },
+	a: 10,
+	b: {
+		a: 10,
+		b: 15,
+		c: [1, 2],
+	},
 };
 
 // як зробити копію об'єкта?
@@ -150,35 +150,35 @@ console.log(newObject);
 // якщо одне непарне, вивести це непарне число
 
 function getNum(a, b) {
-   if (a % 2 && b % 2) {
-      return a + b;
-   } else if (a % 2 === 0 && b % 2 === 0) {
-      return a * b;
-   }
-   return a % 2 ? a : b;
+	if (a % 2 && b % 2) {
+		return a + b;
+	} else if (a % 2 === 0 && b % 2 === 0) {
+		return a * b;
+	}
+	return a % 2 ? a : b;
 }
 console.log(getNum(11, 14));
 
 // --------------------------------------------------------
 // Знайти вагу усіх речей, ціна яких більше 80, та кількість меньше 7
 const food = [
-   { name: 'паста "Болонезье"', weight: 350, price: 68, quantity: 10 },
-   { name: 'спагетті з овочами', weight: 350, price: 56, quantity: 8 },
-   { name: 'пене з куріним феле', weight: 400, price: 68, quantity: 16 },
-   { name: 'піца з ананасами', weight: 675, price: 139, quantity: 30 },
-   { name: 'піца 4 сира', weight: 1600, price: 339, quantity: 8 },
-   { name: 'піца "Італьяні"', weight: 740, price: 159, quantity: 5 },
-   { name: 'салат з сьомгой', weight: 230, price: 87, quantity: 4 },
-   { name: 'салат з креветкою', weight: 230, price: 69, quantity: 5 },
+	{ name: 'паста "Болонезье"', weight: 350, price: 68, quantity: 10 },
+	{ name: 'спагетті з овочами', weight: 350, price: 56, quantity: 8 },
+	{ name: 'пене з куріним феле', weight: 400, price: 68, quantity: 16 },
+	{ name: 'піца з ананасами', weight: 675, price: 139, quantity: 30 },
+	{ name: 'піца 4 сира', weight: 1600, price: 339, quantity: 8 },
+	{ name: 'піца "Італьяні"', weight: 740, price: 159, quantity: 5 },
+	{ name: 'салат з сьомгой', weight: 230, price: 87, quantity: 4 },
+	{ name: 'салат з креветкою', weight: 230, price: 69, quantity: 5 },
 ];
 
 function getWeight(arr) {
-   let filterFood = arr.filter((a) => a.price > 80 && a.quantity < 7);
-   console.log(filterFood);
-   return filterFood.reduce(
-      (acc, item) => (acc += item.weight * item.quantity),
-      0
-   );
+	let filterFood = arr.filter((a) => a.price > 80 && a.quantity < 7);
+	console.log(filterFood);
+	return filterFood.reduce(
+		(acc, item) => (acc += item.weight * item.quantity),
+		0
+	);
 } // Щоб був один цикл замість двох, можна якось циклом for перебрати
 
 console.log(getWeight(food));
@@ -186,11 +186,11 @@ console.log(getWeight(food));
 
 // Вивести (Кількість символів після діапазону a-m)/(загальну кількість символів)
 function printer_error(s) {
-   return `${s
-      .split('')
-      .reduce((acc, item) => (/[^a-m]/i.test(item) ? (acc += 1) : acc), 0)}\/${
-      s.split('').length
-   }`;
+	return `${s
+		.split('')
+		.reduce((acc, item) => (/[^a-m]/i.test(item) ? (acc += 1) : acc), 0)}\/${
+		s.split('').length
+	}`;
 }
 
 console.log(printer_error('aaaxbbbbyyhwawiwjjjWwm'));
@@ -198,13 +198,13 @@ console.log(printer_error('aaaxbbbbyyhwawiwjjjWwm'));
 // ------------------------------------------------------------------------------------------------------------------------
 // Повторити строку n раз:
 function repeatStr(n, str) {
-   return str.repeat(n);
+	return str.repeat(n);
 }
 console.log(repeatStr(4, 'Go '));
 // ------------------------------------------------------------------------------------------------------------------------
 // true якщо перший аргумент закінчується другим:
 function solution(str, end) {
-   return str.endsWith(end);
+	return str.endsWith(end);
 }
 
 console.log(solution('abcde', 'cde'));
@@ -213,7 +213,7 @@ console.log(solution('abcde', 'cde'));
 // The conversion can be done before, or after the addition.
 // The binary number returned should be a string.
 function sumBinary(a, b) {
-   return (a + b).toString(2);
+	return (a + b).toString(2);
 }
 console.log(sumBinary(5, 9));
 
@@ -222,7 +222,7 @@ console.log(sumBinary(5, 9));
 // The parseInt function converts strings to numbers, and it takes a second argument specifying
 // the base in which the string representation is:
 function arrToDec(arr) {
-   return parseInt(arr.join(''), 2);
+	return parseInt(arr.join(''), 2);
 }
 console.log(arrToDec([1, 1, 1, 1]));
 const binaryArrayToNumber = (arr) => parseInt(arr.join(''), 2);
@@ -232,58 +232,58 @@ const binaryArrayToNumber = (arr) => parseInt(arr.join(''), 2);
 // and strings and returns a new list with the strings filtered out.
 
 const filter_list = (arr) => {
-   return arr.filter(function (item, index, array) {
-      return typeof item !== 'string';
-   });
+	return arr.filter(function (item, index, array) {
+		return typeof item !== 'string';
+	});
 };
 console.log(filter_list([1, 2, 'aasf', '1', '123', 123]));
 
 // ------------------------------------------------------------------------------------------------------------------------
 function vowelsCount(str) {
-   const vowels = 'aeiou';
-   let res = 0;
-   for (let index = 0; index < str.length; index++) {
-      if (vowels.indexOf(str[index]) > -1) {
-         res += 1;
-      }
-   }
-   return res;
+	const vowels = 'aeiou';
+	let res = 0;
+	for (let index = 0; index < str.length; index++) {
+		if (vowels.indexOf(str[index]) > -1) {
+			res += 1;
+		}
+	}
+	return res;
 }
 console.log();
 
 // ------------------------------------------------------------------------------------------------------------------------
 // To be a senior, a member must be at least 55 years old and have a handicap greater than 7:
 function category(arr) {
-   return arr.map((item, index, array) =>
-      item[0] >= 55 && item[1] > 7 ? 'Senior' : 'Open'
-   );
+	return arr.map((item, index, array) =>
+		item[0] >= 55 && item[1] > 7 ? 'Senior' : 'Open'
+	);
 }
 console.log(
-   category([
-      [18, 20],
-      [45, 2],
-      [61, 12],
-      [37, 6],
-      [21, 21],
-      [78, 9],
-   ])
+	category([
+		[18, 20],
+		[45, 2],
+		[61, 12],
+		[37, 6],
+		[21, 21],
+		[78, 9],
+	])
 );
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Given the triangle of consecutive odd numbers:
 // Calculate the sum of the numbers in the nth row of this triangle (starting at index 1)
 function sumN(n) {
-   let arr = [];
-   let start = 1;
-   for (let index = 0; index < n; index++) {
-      arr[index] = [];
-      arr[index].length = index + 1;
-      for (let i = 0; i < arr[index].length; i++) {
-         arr[index][i] = start;
-         start += 2;
-      }
-   }
-   return arr[n - 1].reduce((a, b) => a + b);
+	let arr = [];
+	let start = 1;
+	for (let index = 0; index < n; index++) {
+		arr[index] = [];
+		arr[index].length = index + 1;
+		for (let i = 0; i < arr[index].length; i++) {
+			arr[index][i] = start;
+			start += 2;
+		}
+	}
+	return arr[n - 1].reduce((a, b) => a + b);
 }
 // return n**3
 console.log(sumN(2));
@@ -296,60 +296,60 @@ console.log(sumN(2));
 // lastIndexOf() позволяет возвратить последний индекс искомого элемента в массиве при первом совпадении,
 // или -1 если элемент не найден.
 function longest(a, b) {
-   let arr = (a + b).split('').sort();
+	let arr = (a + b).split('').sort();
 
-   return arr
-      .filter(function (item, index, array) {
-         return array.lastIndexOf(item) === index; // вернём уникальные элементы
-      })
-      .join('');
+	return arr
+		.filter(function (item, index, array) {
+			return array.lastIndexOf(item) === index; // вернём уникальные элементы
+		})
+		.join('');
 }
 console.log(longest('axyaabbbccccdefww', 'babcdefklmopqwxy'));
 // ------------------------------------------------------------------------------------------------------------------------
 
 function XO(str) {
-   return (
-      str.split('').filter((item) => {
-         return item.toLowerCase() === 'x';
-      }).length ===
-      str.split('').filter((item) => {
-         return item.toLowerCase() === 'o';
-      }).length
-   );
+	return (
+		str.split('').filter((item) => {
+			return item.toLowerCase() === 'x';
+		}).length ===
+		str.split('').filter((item) => {
+			return item.toLowerCase() === 'o';
+		}).length
+	);
 }
 console.log(XO('xo'));
 
 // ------------------------------------------------------------------------------------------------------------------------
 
 function sumRange(a, b) {
-   let max;
-   let min;
-   a > b && b < a ? ((max = a), (min = b)) : ((min = a), (max = b));
-   let res = 0;
-   for (let i = min; i <= max; i++) {
-      res += i;
-   }
+	let max;
+	let min;
+	a > b && b < a ? ((max = a), (min = b)) : ((min = a), (max = b));
+	let res = 0;
+	for (let i = min; i <= max; i++) {
+		res += i;
+	}
 
-   return res;
-   //  max = Math.max(a, b); - є таке, не знав
+	return res;
+	//  max = Math.max(a, b); - є таке, не знав
 }
 console.log(sumRange(2, 2));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Кожна сторона трикутника менша за суму двох інших сторін.
 function triangle(a, b, c) {
-   return a < b + c && b < a + c && c < a + b;
+	return a < b + c && b < a + c && c < a + b;
 }
 
 // ------------------------------------------------------------------------------------------------------------------------
 
 // Оператор спред ... дозволяє розкласти масив на окремі значення.
 var min = function (list) {
-   return Math.min(...list);
+	return Math.min(...list);
 };
 
 var max = function (list) {
-   return Math.max(...list);
+	return Math.max(...list);
 };
 console.log(min([-52, 56, 30, 29, -54, 0, -110]));
 console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
@@ -357,7 +357,7 @@ console.log(max([4, 6, 2, 1, 9, 63, -134, 566]));
 // ------------------------------------------------------------------------------------------------------------------------
 // Перевірка що пін-код скдадаєтся з 4 або 6 цифр, та не включає нічого крім цифр
 function isNan(n) {
-   return /^[0-9]{4}$/.test(n) || /^[0-9]{6}$/.test(n);
+	return /^[0-9]{4}$/.test(n) || /^[0-9]{6}$/.test(n);
 }
 console.log(isNan('00000'));
 
@@ -365,29 +365,29 @@ console.log(isNan('00000'));
 // Примножувати кожну цифку числа, поки не буде одинарним:
 
 function persistence(num) {
-   if (String(num).split('').length === 1) {
-      return 0;
-   } else {
-      let result = 1;
+	if (String(num).split('').length === 1) {
+		return 0;
+	} else {
+		let result = 1;
 
-      return (result += persistence(
-         String(num)
-            .split('')
-            .reduce((sum, item) => sum * item)
-      ));
-   }
+		return (result += persistence(
+			String(num)
+				.split('')
+				.reduce((sum, item) => sum * item)
+		));
+	}
 }
 console.log(persistence(999));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Сортування по числу в словах?
 function sortNum(str) {
-   return str
-      .split(' ')
-      .sort((a, b) => {
-         return Number(a.match(/(\d+)/g)[0]) - Number(b.match(/(\d+)/g)[0]);
-      })
-      .join(' ');
+	return str
+		.split(' ')
+		.sort((a, b) => {
+			return Number(a.match(/(\d+)/g)[0]) - Number(b.match(/(\d+)/g)[0]);
+		})
+		.join(' ');
 }
 console.log(sortNum('4of Fo1r pe6ople g3ood th5e the2'));
 // Метод .match робить пошук у рядку по рег.виразу, та повертає масив з результатами. (глобальний об'єкт RegExp)
@@ -396,148 +396,149 @@ console.log(sortNum('4of Fo1r pe6ople g3ood th5e the2'));
 // ------------------------------------------------------------------------------------------------------------------------
 // Write a function to split a string and convert it into an array of words.
 function strToArray(str) {
-   return str.split(' ').map((item) => `"${item}"`);
+	return str.split(' ').map((item) => `"${item}"`);
 }
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
 function nameIn(name) {
-   return name
-      .split(' ')
-      .map((item) => `${item[0].toUpperCase}.`)
-      .join('.');
+	return name
+		.split(' ')
+		.map((item) => `${item[0].toUpperCase}.`)
+		.join('.');
 }
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
 function invert(array) {
-   return array.map((item) => item * -1);
+	return array.map((item) => item * -1);
 }
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Перевірка на pangram - це коли в реченні є усі букви алфавиту
 function isPangram(str) {
-   return (string.toLowerCase().match(/([a-z])(?!.*\1)/g) || []).length === 26;
+	return (string.toLowerCase().match(/([a-z])(?!.*\1)/g) || []).length === 26;
 }
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Дано два масива чи об'єкта а & b, перевірити чи усі елементи масива b є квадратами елементів а, незалежно від порядку:
 function comp(a, b) {
-   if (a && b) {
-      let arr = a.map((item) => item * item).sort((a, b) => a - b);
-      let arr2 = b.sort((a, b) => a - b);
-      if (
-         arr.length == arr2.length &&
-         arr.every((item, index) => arr2[index] == item)
-      ) {
-         return true;
-      }
-   }
-   return false;
+	if (a && b) {
+		let arr = a.map((item) => item * item).sort((a, b) => a - b);
+		let arr2 = b.sort((a, b) => a - b);
+		if (
+			arr.length == arr2.length &&
+			arr.every((item, index) => arr2[index] == item)
+		) {
+			return true;
+		}
+	}
+	return false;
 }
 console.log(
-   comp([10, 2, 0, 5, 8, 4, 9, 7, 3, 1], [1, 100, 9, 25, 64, 49, 81, 1, 16, 4])
+	comp([10, 2, 0, 5, 8, 4, 9, 7, 3, 1], [1, 100, 9, 25, 64, 49, 81, 1, 16, 4])
 );
 
 // ------------------------------------------------------------------------------------------------------------------------
 // You are given an array(list) strarr of strings and an integer k.
 // Your task is to return the first longest string consisting of k consecutive strings taken in the array.
 function longestN(strarr, k) {
-   let arr = [];
+	let arr = [];
 
-   for (let i = 0; i < strarr.length; i++) {
-      arr.push(strarr.slice([i], [i + k]).join(''));
-   }
-   return strarr.length === 0 || k > strarr.length || k <= 0
-      ? ''
-      : arr.reduce((max, n) => (max.length >= n.length ? max : n), '');
+	for (let i = 0; i < strarr.length; i++) {
+		arr.push(strarr.slice([i], [i + k]).join(''));
+	}
+	return strarr.length === 0 || k > strarr.length || k <= 0
+		? ''
+		: arr.reduce((max, n) => (max.length >= n.length ? max : n), '');
 }
 console.log(
-   longestN(['tree', 'foling', 'trashy', 'blue', 'abcdef', 'uvwxyz'], 2)
+	longestN(['tree', 'foling', 'trashy', 'blue', 'abcdef', 'uvwxyz'], 2)
 );
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Дають рядок, вивести номери кожної букви по алфавіту.
 function symbPos(str) {
-   return str.toLowerCase().match(/[a-z]/g) // Якщо в рядку були букви
-      ? str
-           .toLowerCase()
-           .match(/[a-z]/g)
-           .map((item) => item.charCodeAt(0) - 96)
-           .join(' ')
-      : '';
+	return str.toLowerCase().match(/[a-z]/g) // Якщо в рядку були букви
+		? str
+				.toLowerCase()
+				.match(/[a-z]/g)
+				.map((item) => item.charCodeAt(0) - 96)
+				.join(' ')
+		: '';
 }
 console.log(symbPos("The sunset sets at twelve o' clock."));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Повернути число - скільки сімволив мають дублікат в рядку:
 function dublicateCount(str) {
-   const sums = {};
-   str.toLowerCase()
-      .split('')
-      .map(function (e) {
-         sums[e] = !sums[e] ? 1 : sums[e] + 1;
-      });
-   let res = 0;
-   for (let key in sums) {
-      if (sums[key] > 1) {
-         res++;
-      }
-   }
-   return res;
+	const sums = {};
+	str
+		.toLowerCase()
+		.split('')
+		.map(function (e) {
+			sums[e] = !sums[e] ? 1 : sums[e] + 1;
+		});
+	let res = 0;
+	for (let key in sums) {
+		if (sums[key] > 1) {
+			res++;
+		}
+	}
+	return res;
 }
 console.log(dublicateCount('indivisibility'));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Розрахувати скільки часу треба черзі в супермаркеті, знаючи час людей та кількість кас:
 function queueTime(arr, n) {
-   const tills = new Array(n).fill(0); // Створили масив та заповнили його нулями
+	const tills = new Array(n).fill(0); // Створили масив та заповнили його нулями
 
-   // goes through the queue of customer waitTimes
-   for (let waitTime of arr) {
-      // finds the till with the least wait time on it, adds the next customer's time to it
-      // Знаходимо касу з найменшим часом очікування, додає до неї час наступного клієнта
-      // Метод Math шукає у рядку, та повертає масив з результатом, тому розвертаемо спредом:
-      const lowestWaitTill = tills.indexOf(Math.min(...tills));
-      tills[lowestWaitTill] += waitTime;
-   }
-   // end result is that the waitTimes (load) on the tills are distributed optimally.
-   // The waitTime of the till with the heaviest load represents the total time taken
-   return Math.max(...tills);
+	// goes through the queue of customer waitTimes
+	for (let waitTime of arr) {
+		// finds the till with the least wait time on it, adds the next customer's time to it
+		// Знаходимо касу з найменшим часом очікування, додає до неї час наступного клієнта
+		// Метод Math шукає у рядку, та повертає масив з результатом, тому розвертаемо спредом:
+		const lowestWaitTill = tills.indexOf(Math.min(...tills));
+		tills[lowestWaitTill] += waitTime;
+	}
+	// end result is that the waitTimes (load) on the tills are distributed optimally.
+	// The waitTime of the till with the heaviest load represents the total time taken
+	return Math.max(...tills);
 }
 console.log(queueTime([10, 2, 3, 3], 2)); // 10
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Видалити з масива а елементи рівні масиву b, та повернути масив а без видалених елементів.
 const arrayDiff = (a, b) => {
-   let arr = a;
-   for (let item of b) {
-      arr = arr.filter((i) => {
-         return i !== item;
-      });
-   }
-   return arr;
+	let arr = a;
+	for (let item of b) {
+		arr = arr.filter((i) => {
+			return i !== item;
+		});
+	}
+	return arr;
 };
 console.log(arrayDiff([1, 2, 3], [1, 2]));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Зроби з числа найбільше - відсортувати від більшого
 function sortMax(number) {
-   return String(number).split('').sort().reverse().join('');
+	return String(number).split('').sort().reverse().join('');
 }
 console.log(sortMax(0));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Дають час: h,m,s - вивести в мілісекундах
 function setTime(h, m, s) {
-   return h * 3600000 + m * 60000 + s * 1000;
+	return h * 3600000 + m * 60000 + s * 1000;
 }
 // ------------------------------------------------------------------------------------------------------------------------
 // Порахувати скільки смайлів в масиві:  :) :D ;-D :~)
 function countSmileys(arr) {
-   return arr.reduce((sum, item) => {
-      return /^([:;])([-~])?([)D])$/.test(item) ? (sum += 1) : (sum += 0);
-   }, 0);
+	return arr.reduce((sum, item) => {
+		return /^([:;])([-~])?([)D])$/.test(item) ? (sum += 1) : (sum += 0);
+	}, 0);
 }
 // В [] вказуємо діапазони сімволів, або набір конкретних
 // В () вказуємо частину підстроки
@@ -548,170 +549,183 @@ console.log(countSmileys([';D', ':-(', ':-)', ';~)']));
 // ------------------------------------------------------------------------------------------------------------------------
 // Дають масив з чотирма напрямками світу, є 10 хвилин часу, одна літера = 1 хвилина, треба вчасно повернутися
 function trip(arr) {
-   return (
-      arr.length === 10 &&
-      arr.filter((i) => i === 'n').length ===
-         arr.filter((i) => i === 's').length &&
-      arr.filter((i) => i === 'w').length ===
-         arr.filter((i) => i === 'e').length
-   );
+	return (
+		arr.length === 10 &&
+		arr.filter((i) => i === 'n').length ===
+			arr.filter((i) => i === 's').length &&
+		arr.filter((i) => i === 'w').length === arr.filter((i) => i === 'e').length
+	);
 }
 
 // -----------------------------------------------------------------------------------------------------------------------
 // "camelCasing" => "camel Casing" або "identifier" => "identifier" або "" => ""
 function camelStr(str) {
-   let res = str;
+	let res = str;
 
-   if (str.match(/[A-Z]/g)) {
-      // let arr = str.match(/[A-Z]/g);
+	if (str.match(/[A-Z]/g)) {
+		// let arr = str.match(/[A-Z]/g);
 
-      // let unique = arr.filter(
-      //    (item, index, array) => index === array.lastIndexOf(item)
-      // );
+		// let unique = arr.filter(
+		//    (item, index, array) => index === array.lastIndexOf(item)
+		// );
 
-      // unique.forEach((item) => {
-      //    res = res.split(item).join(' ' + item);
-      // });
-      str.match(/[A-Z]/g)
-         .filter((item, index, array) => index === array.lastIndexOf(item))
-         .forEach((item) => {
-            res = res.split(item).join(' ' + item);
-         });
-   }
+		// unique.forEach((item) => {
+		//    res = res.split(item).join(' ' + item);
+		// });
+		str
+			.match(/[A-Z]/g)
+			.filter((item, index, array) => index === array.lastIndexOf(item))
+			.forEach((item) => {
+				res = res.split(item).join(' ' + item);
+			});
+	}
 
-   return res;
+	return res;
 }
 console.log(camelStr('eyeDoDifferent'));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Створити об'єкт з кількостями кожної літери рядку:
 function letterCount(str) {
-   return str.split('').reduce((sum, item) => {
-      sum[item] ? (sum[item] += 1) : (sum[item] = 1);
-      return sum;
-   }, {});
+	return str.split('').reduce((sum, item) => {
+		sum[item] ? (sum[item] += 1) : (sum[item] = 1);
+		return sum;
+	}, {});
 }
 console.log(letterCount('aba'));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Що виведе? - phrase = "Привіт" === window.phrase = "Привіт"; це глобальна зміннна
 function sayHi() {
-   phrase = 'Привіт';
-   if (false) {
-      var phrase;
-   }
-   alert(phrase);
+	phrase = 'Привіт';
+	if (false) {
+		var phrase;
+	}
+	alert(phrase);
 }
 // sayHi();
 // ------------------------------------------------------------------------------------------------------------------------
 function DNAStrand(dna) {
-   return dna
-      .split('')
-      .map(function (i) {
-         if (i === 'A') {
-            return (i = 'T');
-         }
-         if (i === 'T') {
-            return (i = 'A');
-         }
-         if (i === 'G') {
-            return (i = 'C');
-         }
-         if (i === 'C') {
-            return (i = 'G');
-         }
-         return i;
-      })
-      .join('');
+	return dna
+		.split('')
+		.map(function (i) {
+			if (i === 'A') {
+				return (i = 'T');
+			}
+			if (i === 'T') {
+				return (i = 'A');
+			}
+			if (i === 'G') {
+				return (i = 'C');
+			}
+			if (i === 'C') {
+				return (i = 'G');
+			}
+			return i;
+		})
+		.join('');
 }
 console.log(DNAStrand('ATTGC'));
 // ------------------------------------------------------------------------------------------------------------------------
 // Розробити функцію по операціям по ключевим словам: seven(times(five())); // must return 35
 
 function zero(func) {
-   return func ? func(0) : 0;
+	return func ? func(0) : 0;
 }
 function one(func) {
-   return func ? func(1) : 1;
+	return func ? func(1) : 1;
 }
 
 function three(func) {
-   return func ? func(3) : 3;
+	return func ? func(3) : 3;
 }
 function four(func) {
-   return func ? func(4) : 4;
+	return func ? func(4) : 4;
 }
 function five(func) {
-   return func ? func(5) : 5;
+	return func ? func(5) : 5;
 }
 
 function seven(func) {
-   return func ? func(7) : 7;
+	return func ? func(7) : 7;
 }
 function eight(func) {
-   return func ? func(8) : 8;
+	return func ? func(8) : 8;
 }
 function nine(func) {
-   return func ? func(9) : 9;
+	return func ? func(9) : 9;
 }
 
 function plus(b) {
-   return function (a) {
-      return a + b;
-   };
+	return function (a) {
+		return a + b;
+	};
 }
 function minus(b) {
-   return function (a) {
-      return a - b;
-   };
+	return function (a) {
+		return a - b;
+	};
 }
 function times(b) {
-   return function (a) {
-      return a * b;
-   };
+	return function (a) {
+		return a * b;
+	};
 }
 
 function two(func) {
-   return func ? func(2) : 2;
+	return func ? func(2) : 2;
 }
 function six(func) {
-   return func ? func(6) : 6;
+	return func ? func(6) : 6;
 }
 function dividedBy(b) {
-   return function (a) {
-      return Math.floor(a / b);
-   };
+	return function (a) {
+		return Math.floor(a / b);
+	};
 }
 console.log(six(dividedBy(two())));
 // plus(4)(2) // 6
 function plus(b) {
-   return (a) => a + b;
+	return (a) => a + b;
 }
 console.log(plus(4)(2));
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Дають напрямки, якщо напрямки взаємодійні, тоді їх видалити з масиву:
 function dirReduc(arr) {
-   const opposite = {
-      NORTH: 'SOUTH',
-      SOUTH: 'NORTH',
-      EAST: 'WEST',
-      WEST: 'EAST',
-   };
+	const opposite = {
+		NORTH: 'SOUTH',
+		SOUTH: 'NORTH',
+		EAST: 'WEST',
+		WEST: 'EAST',
+	};
 
-   if (arr.length <= 1) return arr;
+	if (arr.length <= 1) return arr;
 
-   return arr.reduce((sum, item) => {
-      if (sum[sum.length - 1] !== opposite[item]) {
-         sum.push(item);
-      } else {
-         sum.pop();
-      }
-      return sum;
-   }, []);
+	return arr.reduce((sum, item) => {
+		if (sum[sum.length - 1] !== opposite[item]) {
+			sum.push(item);
+		} else {
+			sum.pop();
+		}
+		return sum;
+	}, []);
 }
 console.log(
-   dirReduc(['NORTH', 'SOUTH', 'SOUTH', 'EAST', 'WEST', 'NORTH', 'WEST'])
+	dirReduc(['NORTH', 'SOUTH', 'SOUTH', 'EAST', 'WEST', 'NORTH', 'WEST'])
 ); // WEST
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Побудувати з слова масив з хвилею: wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+function wave(str) {
+	return str.split('').reduce((sum, item, index) => {
+		let arr = str.split('');
+		arr[index] = item.toUpperCase();
+		if (arr[index] !== ' ') {
+			sum.push(arr.join(''));
+		}
+		return sum;
+	}, []);
+}
+console.log(wave('two words'));
 // ------------------------------------------------------------------------------------------------------------------------
