@@ -743,8 +743,54 @@ function twoSum(arr, n) {
 	}, []);
 }
 console.log(twoSum([1, 2, 3], 4));
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Implement the function which takes an array containing the names of people that like an item.
+// It must return the display text as shown in the examples:
+
+// []                                -->  "no one likes this"
+// ["Peter"]                         -->  "Peter likes this"
+// ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+// ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+// ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+function whoLiked(arr) {
+	switch (arr.length) {
+		case 0:
+			return 'no one likes this';
+		case 1:
+			return `${arr[0]} likes this`;
+		case 2:
+			return `${arr[0]} and ${arr[1]} like this`;
+		case 3:
+			return `${arr[0]}, ${arr[1]} and ${arr[2]} like this`;
+		default:
+			return `${arr[0]}, ${arr[1]} and ${arr.length - 2} others like this`;
+	}
+}
+
+console.log(whoLiked(['Alex', 'Jacob', 'Mark', 'Max']));
+
 // ------------------------------------------------------------------------------------------------------------------------
+// Скльки разів м'яч пролетить вікно на висоті w вниз та вверх, знаючи вистоту h,
+// М'яч кожен раз підстрибує на bounce (2/3 - 0.66) вистоти з якої падає.
+
+function ball(h, bounce, w) {
+	let res;
+	let hNow = h * bounce;
+
+	if (w < h && h > 0 && bounce > 0 && bounce < 1) {
+		for (res = 1; hNow > w; res += 2) {
+			hNow *= bounce;
+			console.log(hNow);
+		}
+		return res;
+	}
+
+	return -1;
+}
+
+console.log(ball(3, 0.66, 1.5));
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
