@@ -401,7 +401,7 @@ function strToArray(str) {
 
 // ------------------------------------------------------------------------------------------------------------------------
 // Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
-function nameIn(name) {
+function nameIn(name) {	
 	return name
 		.split(' ')
 		.map((item) => `${item[0].toUpperCase}.`)
@@ -839,8 +839,50 @@ const howManyDivisors = (n) => {
 	return res;
 };
 console.log(howManyDivisors(30));
+
 // ------------------------------------------------------------------------------------------------------------------------
+String.prototype.toAlternatingCase = function () {
+	return this.split('').map(i => {
+		if (i == i.toUpperCase()) {
+			return i.toLowerCase();
+		}
+		if (i == i.toLowerCase()) {
+			return i.toUpperCase();
+		}
+	}).join('');
+	};
+
+console.log("hello WORLD".toAlternatingCase());
+
 // ------------------------------------------------------------------------------------------------------------------------
+function expandedForm(n) {
+
+	let result = [];
+	let f = n;
+	let lenZero = String(f).length;
+
+	while (lenZero > 1) {
+		let number = '1';
+		
+		for (i = 0; i < lenZero-1; i++){
+			number += '0';
+		}
+	
+		result.push(f - (f % Number(number)));
+		f = f % Number(number);
+		lenZero = String(f).length;
+		
+	}
+	if (f % 10) {
+		result.push(f % 10);
+	}
+
+	return result.join(' + ');
+
+}
+console.log(expandedForm(12)); // Should return '10 + 2'
+
+
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
