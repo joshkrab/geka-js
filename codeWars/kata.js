@@ -882,8 +882,24 @@ function expandedForm(n) {
 }
 console.log(expandedForm(12)); // Should return '10 + 2'
 
-
 // ------------------------------------------------------------------------------------------------------------------------
+// Unique In Order
+// uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+// uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+// uniqueInOrder([1,2,2,3,3])       == [1,2,3]
+
+function uniqueInOrder(value) {
+	let arr;
+	if (typeof (value) === 'string') {
+		arr = value.split('');
+	}
+	if (Array.isArray(value)) {
+		arr = value;
+	}
+	return arr.filter((item, index, array)=> item !== array[index-1])
+}
+console.log(uniqueInOrder([1,2,2,3,3]));
+
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
