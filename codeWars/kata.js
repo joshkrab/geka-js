@@ -901,6 +901,36 @@ function uniqueInOrder(value) {
 console.log(uniqueInOrder([1,2,2,3,3]));
 
 // ------------------------------------------------------------------------------------------------------------------------
+// Тестове - заповнити ями баржи зерном.
+function loadGrain(levels) {
+	let result = 0;
+	
+	function recursion(levels) {
+		let count = 0;
+		for (let index = 0; index < levels.length; index++) {
+
+			for (let c = 1; c < levels.length-1; c++) {
+
+				if (levels[index - 1] > levels[index] && levels[index] < levels[index + c]) {
+							levels[index] += 1;
+							result += 1;
+							count += 1;
+						}
+			}
+			
+		}
+		return count ? recursion(levels) : result;
+	}
+	return recursion(levels);
+}
+
+console.log(loadGrain([2, 0, 1, 5, 2, 7])); 
+//loadGrain([2, 1, 5, 2, 7, 4, 10]) // 7 
+//loadGrain([2, 0, 1, 5, 2, 7]) // 6
+//loadGrain([2, 4, 2]) // 0
+//loadGrain([7, 4]) // 0
+//loadGrain([]) // 0
+
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
