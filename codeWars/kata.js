@@ -932,6 +932,55 @@ console.log(loadGrain([2, 0, 1, 5, 2, 7]));
 //loadGrain([]) // 0
 
 // ------------------------------------------------------------------------------------------------------------------------
+// Сортування бульбашкою:
+const bubbleArr = [4, 3, 2, 1, 9, -11, 33, 2, 4];
+
+function bubbleSort(arr) {
+	const len = arr.length;
+
+	for (let i = 0; i < len - 1; i++) {
+		for (let j = 0; j < len - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				const saveItem = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = saveItem; 
+			}
+		}
+		
+	}
+	return arr; 
+}
+console.log(bubbleSort(bubbleArr));
+
+// Сортування бульбашкою з оптимізацією та в зворотньому порядку:
+const bubbleArr2 = [4, 3, 2, 1, 9, -11, 33, 2, 4];
+let swapped = false;
+
+function bubbleSort2(arr) {
+	const len = arr.length;
+
+	for (let i = 0; i < len - 1; i++) {
+		swapped = false;
+
+		for (let j = 0; j < len - 1; j++) {
+			if (arr[j] < arr[j + 1]) {
+				const saveItem = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = saveItem; 
+
+				swapped = true;
+			}
+		}
+
+		if (!swapped) {
+			break;
+		}
+		
+	}
+	return arr; 
+}
+console.log(bubbleSort2(bubbleArr));
+
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
