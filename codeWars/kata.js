@@ -1002,4 +1002,16 @@ function findOdd(A) {
 }
 console.log(findOdd([1,2,2,3,3,3,4,3,3,3,2,2,1]) );
 // ------------------------------------------------------------------------------------------------------------------------
+
+// Збільшити число в кінці рядку на 1:
+function incrementString (string) {
+	if (/\d+$/ig.test(string)) {
+		let entStr = string.match(/\d+$/ig)[0];
+		entStr = `${Number(entStr)+1}`.padStart(entStr.length, '0')
+
+  return string.replace(/\d+$/ig, str => entStr );
+}
+return string + '1';
+}
+console.log(incrementString('foobar00999'));
 // ------------------------------------------------------------------------------------------------------------------------
