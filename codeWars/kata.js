@@ -1015,3 +1015,42 @@ return string + '1';
 }
 console.log(incrementString('foobar00999'));
 // ------------------------------------------------------------------------------------------------------------------------
+// Намалювати діамант
+function diamond(n){
+  let diam = '';
+
+  if (n%2===0 || n<1){
+    return null;
+  }
+  
+	for (let i = 1; i < n+1; i+=2){
+		let arr = new Array(i + 1).join('*');
+		let spaces = new Array((n - arr.length) / 2).fill(' ').join('');
+	
+    diam = diam + spaces + arr +'\n'
+	
+  }
+	for (let i = n-2; i > 0; i-=2){
+let arr = new Array(i + 1).join('*');
+		let spaces = new Array((n - arr.length) / 2).fill(' ').join('');
+	
+    diam = diam + spaces + arr +'\n'
+	
+  }
+
+    
+  return diam;
+}
+console.log(diamond(7));
+// Рішення з сайту, не знав про репіт:
+// function diamond (n) {
+//   if (n <= 0 || n % 2 === 0) return null
+//   str = ''
+//   for (let i = 0; i < n; i++) { 
+//     let len = Math.abs((n-2*i-1)/2)
+//     str += ' '.repeat(len)
+//     str += '*'.repeat(n-2*len)
+//     str += '\n'
+//   }
+//   return str
+// }
