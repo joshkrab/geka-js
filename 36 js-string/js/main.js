@@ -71,3 +71,17 @@ console.log(fls.slice(4, 7));
 // Задача 6. true or false? false, true - if 3
 let text6 = 'фрилансер';
 console.log(text6.includes('лан', 4));
+
+// Дістати хост нейм з повного урл
+function domainName(url){
+   let result;
+    if (url.includes('www.')){
+      result = url.split('www.')[1]
+   }  else if (url.includes('//')) {
+      result = url.split('//')[1]
+   } else {
+     result = url;
+   }
+   return result.split('.')[0]
+}
+console.log(domainName("http://google.com"));
