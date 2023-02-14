@@ -172,7 +172,7 @@ console.log(arrSort2.sort());
 console.log('8' > '22'); // true - элементы сортируются как строки
 
 // В метод сорт запишем свою функцию, и посмотрим какие цифры сравниваются
-function mySort(a, b) {
+function mySort (a, b) {
    console.log(`Сейчас сравниваются ${a} и ${b}`);
 
    // Сортирует в зависимости от положительного или отрицательного результата
@@ -255,7 +255,7 @@ let arrNumValue = arrNumbers.reduce(function (
 ) {
    return item + previousValue;
 },
-0);
+   0);
 console.log(arrNumValue);
 
 // Если не указать начальное значение, то оно будет равно первому элементу массива
@@ -334,7 +334,7 @@ console.log(hw5V);
 const a = { x: 1 };
 const b = { x: 1 };
 
-function deepEqual(obj1, obj2) {
+function deepEqual (obj1, obj2) {
    return JSON.stringify(obj1) === JSON.stringify(obj2);
 }
 console.log(deepEqual(a, b)); // true
